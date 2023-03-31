@@ -1,6 +1,6 @@
 Name:		texlive-customdice
 Version:	64089
-Release:	1
+Release:	2
 Summary:	Simple commands for drawing customisable dice
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/customdice
