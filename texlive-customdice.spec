@@ -3,7 +3,7 @@ Version:	64089
 Release:	2
 Summary:	Simple commands for drawing customisable dice
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/customdice
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/customdice
 License:	cc-by-sa-4
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.doc.r%{version}.tar.xz
