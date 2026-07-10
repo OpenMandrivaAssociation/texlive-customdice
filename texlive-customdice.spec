@@ -1,42 +1,26 @@
-Name:		texlive-customdice
-Version:	64089
-Release:	2
+%global tl_name customdice
+%global tl_revision 64089
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1
+Release:	%{tl_revision}.1
 Summary:	Simple commands for drawing customisable dice
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/customdice
+URL:		https://www.ctan.org/tex-archive/graphics/pgf/contrib/customdice
 License:	cc-by-sa-4
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/customdice.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The customdice package for LaTeX, LuaLaTeX and XeTeX that
-provides functionality for drawing dice. The aim is to provide
-highly-customisable but simple-to-use commands, allowing:
-adding custom text to dice faces; control over colouring;
-control over sizing.
+The customdice package for LaTeX, LuaLaTeX and XeTeX that provides
+functionality for drawing dice. The aim is to provide highly-
+customisable but simple-to-use commands, allowing: adding custom text to
+dice faces; control over colouring; control over sizing.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/customdice
-%{_texmfdistdir}/tex/latex/customdice
-%doc %{_texmfdistdir}/doc/latex/customdice
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
